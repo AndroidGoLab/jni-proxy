@@ -3,6 +3,7 @@
 package e2e_grpc_test
 
 import (
+	"os"
 	"strings"
 	"testing"
 )
@@ -21,13 +22,6 @@ import (
 func runSuccess(t *testing.T, args ...string) string {
 	t.Helper()
 	return runLiveJnicli(t, args...)
-}
-
-// runExpectErr runs jnicli and asserts non-zero exit-code.
-// Returns combined output for further assertions.
-func runExpectErr(t *testing.T, args ...string) string {
-	t.Helper()
-	return runLiveJnicliExpectError(t, args...)
 }
 
 // assertContains fails the test if substr is not found in s.
@@ -348,8 +342,7 @@ func TestE2E_Services_Auth(t *testing.T) {
 func TestE2E_Services_Download_SecurityException(t *testing.T) {
 	skipIfNoEmulator(t)
 	t.Run("GetMimeTypeForDownloadedFile", func(t *testing.T) {
-		out := runExpectErr(t, "download", "manager", "get-mime-type-for-downloaded-file", "--arg0", "1")
-		assertContains(t, out, "SecurityException")
+		assertSecurityExceptionOrSuccess(t, "download", "manager", "get-mime-type-for-downloaded-file", "--arg0", "1")
 	})
 }
 
@@ -358,21 +351,50 @@ func TestE2E_Services_Download_SecurityException(t *testing.T) {
 func TestE2E_Services_Blob_SecurityException(t *testing.T) {
 	skipIfNoEmulator(t)
 	t.Run("GetRemainingLeaseQuotaBytes", func(t *testing.T) {
-		out := runExpectErr(t, "blob", "store-manager", "get-remaining-lease-quota-bytes")
-		assertContains(t, out, "SecurityException")
+		assertSecurityExceptionOrSuccess(t, "blob", "store-manager", "get-remaining-lease-quota-bytes")
 	})
 }
 
 func TestE2E_Services_Location_SecurityException(t *testing.T) {
 	skipIfNoEmulator(t)
 	t.Run("GetLastKnownLocation_GPS", func(t *testing.T) {
-		out := runExpectErr(t, "location", "manager", "get-last-known-location", "--arg0", "gps")
-		assertContains(t, out, "SecurityException")
+		assertSecurityExceptionOrSuccess(t, "location", "manager", "get-last-known-location", "--arg0", "gps")
 	})
 }
 
 func TestE2E_Services_Notification_SecurityException(t *testing.T) {
-	t.Skip("get-notification-channels RPC no longer exists; notification service covered by working tests")
+	skipIfNoEmulator(t)
+	t.Run("GetNotificationChannels", func(t *testing.T) {
+		assertSecurityExceptionOrSuccess(t, "notification", "manager", "get-notification-channels")
+	})
+}
+
+// assertSecurityExceptionOrSuccess verifies that a command either fails
+// with SecurityException (when server lacks permissions, e.g. app_process
+// mode) or succeeds (when server has the required permissions, e.g. APK
+// mode with grants).
+func assertSecurityExceptionOrSuccess(t *testing.T, args ...string) {
+	t.Helper()
+	out := runLiveJnicliAllowError(t, args...)
+	if out.err != nil {
+		assertContains(t, out.combined, "SecurityException")
+	}
+}
+
+type cmdResult struct {
+	combined string
+	err      error
+}
+
+func runLiveJnicliAllowError(t *testing.T, args ...string) cmdResult {
+	t.Helper()
+	addr := os.Getenv("JNICTL_E2E_ADDR")
+	fullArgs := append([]string{"--addr", addr, "--insecure"}, mtlsFlags()...)
+	fullArgs = append(fullArgs, args...)
+
+	cmd := jnicliCommand(fullArgs...)
+	out, err := cmd.CombinedOutput()
+	return cmdResult{combined: string(out), err: err}
 }
 
 // ---------- Unimplemented services ----------

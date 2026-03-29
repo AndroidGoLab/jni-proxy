@@ -5,6 +5,7 @@ package e2e_grpc_test
 import (
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -70,7 +71,14 @@ func TestE2E_MicrophoneRecord(t *testing.T) {
 func TestE2E_LocationGet(t *testing.T) {
 	skipIfNoEmulator(t)
 
-	out := runLiveJnicli(t, "location", "get")
+	result := runLiveJnicliAllowError(t, "location", "get")
+	if result.err != nil {
+		if strings.Contains(result.combined, "no location available") {
+			t.Skip("no cached location available on device")
+		}
+		t.Fatalf("location get: %v\n%s", result.err, result.combined)
+	}
+	out := result.combined
 	resp := parseJSON(t, out)
 
 	for _, field := range []string{"provider", "latitude", "longitude", "altitude", "accuracy"} {

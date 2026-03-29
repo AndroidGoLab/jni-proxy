@@ -62,20 +62,66 @@ func runJnicliAuthExpectError(t *testing.T, certDir string, args ...string) stri
 	return string(out)
 }
 
-// runAdmin runs jniserviceadmin with the test DB.
+// runAdmin runs jniserviceadmin with the test DB. Supports host mode
+// (JNISERVICEADMIN_BIN) and ADB mode (JNISERVICEADMIN_ADB_BIN).
 func runAdmin(t *testing.T, dbPath string, args ...string) string {
 	t.Helper()
-	adminBin := os.Getenv("JNISERVICEADMIN_BIN")
-	if adminBin == "" {
-		t.Skip("JNISERVICEADMIN_BIN not set")
+
+	if adminBin := os.Getenv("JNISERVICEADMIN_BIN"); adminBin != "" {
+		fullArgs := append([]string{"--db", dbPath}, args...)
+		cmd := exec.Command(adminBin, fullArgs...)
+		out, err := cmd.CombinedOutput()
+		if err != nil {
+			t.Fatalf("jniserviceadmin %s: %v\n%s", strings.Join(args, " "), err, out)
+		}
+		return string(out)
 	}
-	fullArgs := append([]string{"--db", dbPath}, args...)
-	cmd := exec.Command(adminBin, fullArgs...)
-	out, err := cmd.CombinedOutput()
-	if err != nil {
-		t.Fatalf("jniserviceadmin %s: %v\n%s", strings.Join(args, " "), err, out)
+
+	if adbAdmin := os.Getenv("JNISERVICEADMIN_ADB_BIN"); adbAdmin != "" {
+		adbEnv := os.Getenv("ADB")
+		if adbEnv == "" {
+			adbEnv = "adb"
+		}
+		adbParts := strings.Fields(adbEnv)
+
+		// Write a script to the device to avoid adb shell quoting issues
+		// with glob characters like /* in method patterns.
+		cmdStr := adbAdmin + " --db " + dbPath
+		for _, a := range args {
+			cmdStr += " " + shellescape(a)
+		}
+		scriptFile, err := os.CreateTemp("", "admin-*.sh")
+		if err != nil {
+			t.Fatalf("creating admin script: %v", err)
+		}
+		defer func() { _ = os.Remove(scriptFile.Name()) }()
+		if _, err := scriptFile.WriteString(cmdStr); err != nil {
+			t.Fatalf("writing admin script: %v", err)
+		}
+		_ = scriptFile.Close()
+
+		pushArgs := append(adbParts[1:], "push", scriptFile.Name(), "/data/local/tmp/e2e-admin.sh")
+		pushCmd := exec.Command(adbParts[0], pushArgs...)
+		if out, err := pushCmd.CombinedOutput(); err != nil {
+			t.Fatalf("pushing admin script: %v\n%s", err, out)
+		}
+
+		runArgs := append(adbParts[1:], "shell", "sh", "/data/local/tmp/e2e-admin.sh")
+		cmd := exec.Command(adbParts[0], runArgs...)
+		out, err := cmd.CombinedOutput()
+		if err != nil {
+			t.Fatalf("adb jniserviceadmin %s: %v\n%s", strings.Join(args, " "), err, out)
+		}
+		return string(out)
 	}
-	return string(out)
+
+	t.Skip("neither JNISERVICEADMIN_BIN nor JNISERVICEADMIN_ADB_BIN is set")
+	return ""
+}
+
+// shellescape wraps a string in single quotes for safe shell execution.
+func shellescape(s string) string {
+	return "'" + strings.ReplaceAll(s, "'", "'\\''") + "'"
 }
 
 func TestE2E_Auth_RegisterAndDenied(t *testing.T) {
@@ -120,10 +166,6 @@ func TestE2E_Auth_GrantAndAllow(t *testing.T) {
 	if dbPath == "" {
 		dbPath = "/data/adb/jniservice/data/acl.db"
 	}
-	adminBin := os.Getenv("JNISERVICEADMIN_BIN")
-	if adminBin == "" {
-		t.Skip("JNISERVICEADMIN_BIN not set")
-	}
 
 	certDir := t.TempDir()
 
@@ -165,10 +207,6 @@ func TestE2E_Auth_ListPermissions(t *testing.T) {
 	dbPath := os.Getenv("JNISERVICE_DB")
 	if dbPath == "" {
 		dbPath = "/data/adb/jniservice/data/acl.db"
-	}
-	adminBin := os.Getenv("JNISERVICEADMIN_BIN")
-	if adminBin == "" {
-		t.Skip("JNISERVICEADMIN_BIN not set")
 	}
 
 	certDir := t.TempDir()

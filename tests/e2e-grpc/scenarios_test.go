@@ -22,7 +22,7 @@ func TestScenario_CameraCommandsExist(t *testing.T) {
 }
 
 func TestScenario_RecorderCommandsExist(t *testing.T) {
-	t.Skip("recorder subcommand removed (MediaRecorder is not a system_service)")
+	assertCommandExists(t, "recorder", "media-recorder")
 }
 
 func TestScenario_NotificationCommandsExist(t *testing.T) {
@@ -32,7 +32,7 @@ func TestScenario_NotificationCommandsExist(t *testing.T) {
 }
 
 func TestScenario_DeviceInfoCommandsExist(t *testing.T) {
-	t.Skip("build subcommand removed (Build is not a system_service)")
+	assertCommandExists(t, "build", "build")
 }
 
 func TestScenario_BluetoothCommandsExist(t *testing.T) {
